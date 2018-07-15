@@ -1,0 +1,21 @@
+Private Sub Workbook_Open()
+
+    UserForm1.Show vbModeless
+    
+    'Nombramos Ws como la primer ws
+    Set Ws = ThisWorkbook.Sheets(1)
+    
+End Sub
+
+Private Sub Workbook_BeforeClose(Cancel As Boolean)
+
+Dim Response As Long
+
+Response = MsgBox("El libro no guardará los cambios. Desea cerrarlo igualmente?", vbYesNo)
+
+If Response = vbNo Then
+Cancel = True
+Else: ThisWorkbook.Saved = True
+End If
+
+End Sub
