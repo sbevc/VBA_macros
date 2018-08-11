@@ -477,7 +477,7 @@ Private Sub toVIS_Basic(articles As Collection, errors As Scripting.Dictionary)
         If Application.WorksheetFunction.VLookup(hier, arr_hier, 1, 0) = "" Then
             With wbDest.Sheets(1).Cells(x + 2, D_Category_d)
                 .value = hier
-                .Offset(0, 1).value = "No existe en la jerarquÌa Dufry"
+                .Offset(0, 1).value = "No existe en la jerarqu√≠a Dufry"
                 With .Interior
                     .Pattern = xlSolid
                     .PatternColorIndex = xlAutomatic
@@ -620,7 +620,7 @@ Sub toVIS_listing(articles As Collection, errors As Scripting.Dictionary, ByVal 
         regex.Pattern = "Z\w{3}"    'para sacar las tiendas que empiezan con Z del listing
         If arrSites(i) = "Sin listing" Or regex.Test(arrSites(i)) Then
             If arrSites(i) = "Sin listing" Then: addToErrors "Falta Listing", errors, article.ID: GoTo NextArticle
-            If regex.Test(arrSites(i)) Then: addToErrors "Site " & arrSites(i) & " no v·lido", errors, article.ID: GoTo Next_i
+            If regex.Test(arrSites(i)) Then: addToErrors "Site " & arrSites(i) & " no v√°lido", errors, article.ID: GoTo Next_i
         Else
             
             With wbListErr.Sheets(1)
@@ -752,7 +752,7 @@ Sub formatduplicates(rg As Range)
     uv.DupeUnique = xlDuplicate
     uv.Interior.Color = vbRed
 End Sub
-'extrae solo los n˙meros, incluyendo los puntos y comas si los hay
+'extrae solo los n√∫meros, incluyendo los puntos y comas si los hay
 Function cleanValue(value As Variant)
     Set RE = CreateObject("vbscript.regexp")
 
@@ -816,7 +816,7 @@ Sub addToErrors(prop As String, errors As Scripting.Dictionary, artID, Optional 
     
 End Sub
 
-'ponemos los errores y los dem·s sites(gamma y/o IOSC en funciÛn de si es centralizada o no la compra)
+'ponemos los errores y los dem√°s sites(gamma y/o IOSC en funci√≥n de si es centralizada o no la compra)
 Sub printListing_Errors(errors As Scripting.Dictionary, wbListErr As Workbook, Optional estGAMMA As Variant, Optional centralizado As Boolean)
 
     Dim wsErrors As Worksheet, wsListing As Worksheet
